@@ -3,24 +3,23 @@ Imports System.Runtime.InteropServices
 
 Public Class Form1
     Dim FPS As Integer = 0
+    Public hWidth As Integer
+    Public hHeight As Integer
+    Public hTop As Integer
+    Public hLeft As Integer
+    Public Base_hTop As Integer
+    Public Base_hLeft As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Task.Enabled = True
-        Timer1.Enabled = True
-        'Form2.Show()
+        Form2.Show()
     End Sub
 
     Private Sub Task_Tick(sender As Object, e As EventArgs) Handles Task.Tick
-        If Timer1.Enabled = True Then
+        If FPS_Timer.Enabled = True Then
             FPS += 1
         End If
 
-        Dim hWidth = Integer.Parse(nW.Text)
-        Dim hHeight = Integer.Parse(nH.Text)
-        Dim hTop = Integer.Parse(nT.Text)
-        Dim hLeft = Integer.Parse(nL.Text)
-
-        If PictureBox1.Image IsNot Nothing Then
-            PictureBox1.Image.Dispose()
+        If PictureBox.Image IsNot Nothing Then
+            PictureBox.Image.Dispose()
         End If
         Dim disDC As IntPtr = GetDC(IntPtr.Zero)
         'Bitmapの作成
@@ -35,7 +34,7 @@ Public Class Form1
         g.ReleaseHdc(hDC)
         g.Dispose()
         ReleaseDC(IntPtr.Zero, disDC)
-        PictureBox1.Image = bmp
+        PictureBox.Image = bmp
     End Sub
 
     Const SRCCOPY As Integer = 13369376
@@ -58,7 +57,6 @@ Public Class Form1
 
     End Function
 
-
     Public Shared Function CaptureScreen() As Bitmap
         'プライマリモニタのデバイスコンテキストを取得
         Dim disDC As IntPtr = GetDC(IntPtr.Zero)
@@ -77,16 +75,9 @@ Public Class Form1
         Return bmp
     End Function
 
-
-    Private Sub Form1_Close(sender As Object, e As EventArgs) Handles MyBase.Closed
-
-    End Sub
-
-
-
     Private mousePoint As Point
 
-    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown, PictureBox1.MouseDown
+    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown, PictureBox.MouseDown
         If (e.Button And MouseButtons.Left) = MouseButtons.Left Then
             '位置を記憶する
             mousePoint = New Point(e.X, e.Y)
@@ -94,7 +85,7 @@ Public Class Form1
     End Sub
 
     'マウスが動いたとき
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove, PictureBox1.MouseMove
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove, PictureBox.MouseMove
         If (e.Button And MouseButtons.Left) = MouseButtons.Left Then
             Me.Left += e.X - mousePoint.X
             Me.Top += e.Y - mousePoint.Y
@@ -103,17 +94,16 @@ Public Class Form1
 
     Dim mode As Integer = 0
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.DoubleClick, maxbox.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox.DoubleClick
         If mode = 2 Then
             Me.WindowState = FormWindowState.Normal
             Me.Width = 1280
-            Me.Height = 760
-            PictureBox1.Width = 1280
-            PictureBox1.Height = 720
-            PictureBox1.Top = 40
-            Closeing.Left = 1248
-            maxbox.Left = 1216
-            Version.Left = 1136
+            Me.Height = 720
+            PictureBox.Width = 1280
+            PictureBox.Height = 720
+            PictureBox.Top = 0
+            Me.Top = Me.Top + 90
+            Me.Left = Me.Left + 160
             Try
                 AppActivate("Parsec")
             Catch ex As Exception
@@ -121,9 +111,9 @@ Public Class Form1
             mode = 0
         ElseIf mode = 1 Then
             Me.WindowState = FormWindowState.Maximized
-            PictureBox1.Width = Me.Width
-            PictureBox1.Height = Me.Height
-            PictureBox1.Top = 0
+            PictureBox.Width = Me.Width
+            PictureBox.Height = Me.Height
+            PictureBox.Top = 0
             Try
                 AppActivate("Parsec")
             Catch ex As Exception
@@ -131,78 +121,46 @@ Public Class Form1
             mode = 2
         ElseIf mode = 0 Then
             Me.WindowState = FormWindowState.Normal
-            Me.Width = 1598
-            Me.Height = 938
-            PictureBox1.Width = 1600
-            PictureBox1.Height = 900
-            PictureBox1.Top = 40
-            Closeing.Left = 1568
-            maxbox.Left = 1536
-            Version.Left = 1456
+            Me.Width = 1600
+            Me.Height = 900
+            Me.Top = Me.Top - 90
+            Me.Left = Me.Left - 160
+            PictureBox.Width = 1600
+            PictureBox.Height = 900
+            PictureBox.Top = 0
             Try
                 AppActivate("Parsec")
             Catch ex As Exception
             End Try
             mode = 1
         End If
-
-        '    If Me.WindowState = FormWindowState.Maximized Then
-        '    'Me.FormBorderStyle = FormBorderStyle.None
-        '    Me.WindowState = FormWindowState.Normal
-        '    Me.Width = 1280
-        '    Me.Height = 760
-        '    PictureBox1.Width = 1280
-        '    PictureBox1.Height = 720
-        '    PictureBox1.Top = 40
-        '    Me.TopMost = True
-        '    Try
-        '        AppActivate("Parsec")
-        '    Catch ex As Exception
-
-        '    End Try
-        'Else
-        '    Me.WindowState = FormWindowState.Maximized
-        '    PictureBox1.Width = Me.Width
-        '    PictureBox1.Height = Me.Height
-        '    PictureBox1.Top = 0
-        '    Me.TopMost = True
-        '    Try
-        '        AppActivate("Parsec")
-        '    Catch ex As Exception
-
-        '    End Try
-        'End If
     End Sub
 
-    Private Sub Close_Click(sender As Object, e As EventArgs) Handles Closeing.Click
-        Me.Close()
-    End Sub
-
-    Private Sub PictureBox1_Click_1(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Try
-            AppActivate("Parsec")
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    'Private Sub TextBox_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles nW.KeyPress, nH.KeyPress, nL.KeyPress, nT.KeyPress
-    '    If (e.KeyChar < "0"c OrElse "9"c < e.KeyChar) AndAlso e.KeyChar <> ControlChars.Back Then
-    '        e.Handled = True
-    '    End If
-    'End Sub
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Label6.Text = CStr(FPS)
+    Private Sub FPS_Timer_Tick(sender As Object, e As EventArgs) Handles FPS_Timer.Tick
+        FPS_Label.Text = CStr(FPS)
         FPS = 0
     End Sub
 
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-        If Timer1.Enabled = True Then
-            Timer1.Enabled = False
-            Label6.Text = "0"
+    Private Sub FPS_Click(sender As Object, e As EventArgs) Handles FPS_Label.Click
+        If FPS_Timer.Enabled = True Then
+            FPS_Timer.Enabled = False
+            FPS_Label.Text = "0"
         Else
-            Timer1.Enabled = True
+            FPS_Timer.Enabled = True
         End If
     End Sub
+
+    Private Sub PictureBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles Me.KeyDown
+        'F1キーが押されたか調べる
+        If e.KeyData = Keys.Escape Then
+            If Form3.Visible = False Then
+                Form3.Show()
+                Me.Activate()
+            Else
+                Form3.Visible = False
+            End If
+
+        End If
+    End Sub
+
 End Class
