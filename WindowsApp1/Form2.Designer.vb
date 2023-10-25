@@ -33,24 +33,29 @@ Partial Class Form2
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Marker = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Start
         '
-        Me.Start.AutoSize = True
-        Me.Start.Location = New System.Drawing.Point(48, 151)
+        Me.Start.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Start.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Start.Location = New System.Drawing.Point(50, 20)
         Me.Start.Name = "Start"
-        Me.Start.Size = New System.Drawing.Size(37, 15)
+        Me.Start.Size = New System.Drawing.Size(86, 20)
         Me.Start.TabIndex = 0
         Me.Start.Text = "Start"
+        Me.Start.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'hW
         '
-        Me.hW.BackColor = System.Drawing.Color.Black
+        Me.hW.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.hW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.hW.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.hW.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.hW.ForeColor = System.Drawing.Color.LightGray
-        Me.hW.Location = New System.Drawing.Point(79, 11)
+        Me.hW.Location = New System.Drawing.Point(91, 47)
         Me.hW.Name = "hW"
         Me.hW.Size = New System.Drawing.Size(45, 24)
         Me.hW.TabIndex = 1
@@ -59,11 +64,11 @@ Partial Class Form2
         '
         'hH
         '
-        Me.hH.BackColor = System.Drawing.Color.Black
+        Me.hH.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.hH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.hH.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.hH.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.hH.ForeColor = System.Drawing.Color.LightGray
-        Me.hH.Location = New System.Drawing.Point(79, 41)
+        Me.hH.Location = New System.Drawing.Point(91, 77)
         Me.hH.Name = "hH"
         Me.hH.Size = New System.Drawing.Size(45, 24)
         Me.hH.TabIndex = 2
@@ -72,11 +77,11 @@ Partial Class Form2
         '
         'hT
         '
-        Me.hT.BackColor = System.Drawing.Color.Black
+        Me.hT.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.hT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.hT.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.hT.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.hT.ForeColor = System.Drawing.Color.LightGray
-        Me.hT.Location = New System.Drawing.Point(79, 71)
+        Me.hT.Location = New System.Drawing.Point(91, 107)
         Me.hT.Name = "hT"
         Me.hT.Size = New System.Drawing.Size(45, 24)
         Me.hT.TabIndex = 3
@@ -85,11 +90,11 @@ Partial Class Form2
         '
         'hL
         '
-        Me.hL.BackColor = System.Drawing.Color.Black
+        Me.hL.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.hL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.hL.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.hL.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.hL.ForeColor = System.Drawing.Color.LightGray
-        Me.hL.Location = New System.Drawing.Point(79, 101)
+        Me.hL.Location = New System.Drawing.Point(91, 137)
         Me.hL.Name = "hL"
         Me.hL.Size = New System.Drawing.Size(45, 24)
         Me.hL.TabIndex = 4
@@ -98,9 +103,10 @@ Partial Class Form2
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Location = New System.Drawing.Point(24, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 24)
         Me.Label2.TabIndex = 5
@@ -109,9 +115,10 @@ Partial Class Form2
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label3.Location = New System.Drawing.Point(12, 39)
+        Me.Label3.Location = New System.Drawing.Point(24, 77)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 24)
         Me.Label3.TabIndex = 6
@@ -120,9 +127,10 @@ Partial Class Form2
         '
         'Label4
         '
-        Me.Label4.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label4.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label4.Location = New System.Drawing.Point(12, 69)
+        Me.Label4.Location = New System.Drawing.Point(24, 107)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(61, 24)
         Me.Label4.TabIndex = 7
@@ -131,9 +139,10 @@ Partial Class Form2
         '
         'Label5
         '
-        Me.Label5.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label5.Location = New System.Drawing.Point(12, 99)
+        Me.Label5.Location = New System.Drawing.Point(24, 137)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(61, 24)
         Me.Label5.TabIndex = 8
@@ -144,12 +153,29 @@ Partial Class Form2
         '
         Me.Timer1.Enabled = True
         '
+        'Marker
+        '
+        Me.Marker.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Marker.Location = New System.Drawing.Point(0, 0)
+        Me.Marker.Name = "Marker"
+        Me.Marker.Size = New System.Drawing.Size(16, 16)
+        Me.Marker.TabIndex = 9
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(6, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(948, 528)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Black
-        Me.ClientSize = New System.Drawing.Size(148, 179)
+        Me.BackColor = System.Drawing.Color.Blue
+        Me.ClientSize = New System.Drawing.Size(960, 540)
+        Me.Controls.Add(Me.Marker)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -159,15 +185,17 @@ Partial Class Form2
         Me.Controls.Add(Me.hH)
         Me.Controls.Add(Me.hW)
         Me.Controls.Add(Me.Start)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Meiryo UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.ForeColor = System.Drawing.Color.DarkGray
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "X:0000 , Y:0000"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -183,4 +211,6 @@ Partial Class Form2
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Marker As Panel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

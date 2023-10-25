@@ -33,10 +33,10 @@ Partial Class Form1
         '
         'PictureBox
         '
-        Me.PictureBox.BackColor = System.Drawing.Color.DimGray
+        Me.PictureBox.BackColor = System.Drawing.Color.Black
         Me.PictureBox.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(1280, 720)
+        Me.PictureBox.Size = New System.Drawing.Size(960, 540)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox.TabIndex = 3
         Me.PictureBox.TabStop = False
@@ -67,7 +67,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(1280, 720)
+        Me.ClientSize = New System.Drawing.Size(960, 540)
         Me.Controls.Add(Me.FPS_Label)
         Me.Controls.Add(Me.PictureBox)
         Me.Font = New System.Drawing.Font("Meiryo UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))

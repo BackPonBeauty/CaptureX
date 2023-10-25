@@ -92,25 +92,13 @@ Public Class Form1
         End If
     End Sub
 
-    Dim mode As Integer = 0
+    Dim mode As Integer = 1
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox.DoubleClick
-        If mode = 2 Then
-            Me.WindowState = FormWindowState.Normal
-            Me.Width = 1280
-            Me.Height = 720
-            PictureBox.Width = 1280
-            PictureBox.Height = 720
-            PictureBox.Top = 0
-            Me.Top = Me.Top + 90
-            Me.Left = Me.Left + 160
-            Try
-                AppActivate("Parsec")
-            Catch ex As Exception
-            End Try
-            mode = 0
-        ElseIf mode = 1 Then
+        If mode = 3 Then
             Me.WindowState = FormWindowState.Maximized
+            PictureBox.Top = 0
+            PictureBox.Left = 0
             PictureBox.Width = Me.Width
             PictureBox.Height = Me.Height
             PictureBox.Top = 0
@@ -118,21 +106,56 @@ Public Class Form1
                 AppActivate("Parsec")
             Catch ex As Exception
             End Try
-            mode = 2
-        ElseIf mode = 0 Then
+            mode = 0
+        ElseIf mode = 2 Then
             Me.WindowState = FormWindowState.Normal
             Me.Width = 1600
             Me.Height = 900
             Me.Top = Me.Top - 90
             Me.Left = Me.Left - 160
-            PictureBox.Width = 1600
-            PictureBox.Height = 900
+            PictureBox.Top = 0
+            PictureBox.Left = 0
+            PictureBox.Width = Me.Width
+            PictureBox.Height = Me.Height
             PictureBox.Top = 0
             Try
                 AppActivate("Parsec")
             Catch ex As Exception
             End Try
+            mode = 3
+        ElseIf mode = 1 Then
+            Me.WindowState = FormWindowState.Normal
+            Me.Width = 1280
+            Me.Height = 720
+            PictureBox.Top = 0
+            PictureBox.Left = 0
+            PictureBox.Width = Me.Width
+            PictureBox.Height = Me.Height
+            PictureBox.Top = 0
+            Me.Top = Me.Top - 90
+            Me.Left = Me.Left - 160
+            Try
+                AppActivate("Parsec")
+            Catch ex As Exception
+            End Try
+            mode = 2
+        ElseIf mode = 0 Then
+            Me.WindowState = FormWindowState.Normal
+            Me.Width = 960
+            Me.Height = 540
+            PictureBox.Top = 0
+            PictureBox.Left = 0
+            PictureBox.Width = Me.Width
+            PictureBox.Height = Me.Height
+            PictureBox.Top = 0
+            Me.Top = Me.Top + 180
+            Me.Left = Me.Left + 320
+            Try
+                AppActivate("Parsec")
+            Catch ex As Exception
+            End Try
             mode = 1
+        Else
         End If
     End Sub
 
